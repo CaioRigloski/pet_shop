@@ -1,0 +1,13 @@
+body {
+  display: grid;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#header_container {
+  background-color: #FF9934;
+}
+
+#header_dog {
+  height: 10%;
+}

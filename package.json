@@ -1,0 +1,15 @@
+{
+  "name": "petshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "app": "nodemon app"
+  },
+  "author": "Caio Rigloski",
+  "license": "ISC",
+  "dependencies": {
+    "express-handlebars": "^6.0.3"
+  }
+}

@@ -4,10 +4,52 @@ body {
   box-sizing: border-box;
 }
 
+header {
+  background-color: #2cbbc3;
+}
+
 #header_container {
   background-color: #FF9934;
 }
 
 #header_dog {
-  height: 10%;
+  position: relative;
+  top: 32.8%;
+  left: 12%;
+  margin-top: -70px;
+  width: 150px;
+}
+  
+#header_div {
+  height: 10px;
+  background-color: #2cbbc3;
+}
+
+.slider-inner {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f8f246;
+  height: 700px;
+}
+
+.slider-item {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.slider-item-text {
+  -webkit-text-stroke: 1px black;
+  font-size: 100px;
+  color: white;
+  font-family: fantasy;
+  width: 250px;
+}
+
+.smaller-text {
+  font-size: 50px;
+}
+
+.slider-img {
+  width: 300px;
 }

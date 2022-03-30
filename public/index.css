@@ -1,118 +1,164 @@
-body {
-  display: grid;
-  margin: 0;
-  box-sizing: border-box;
+@media screen and (max-width: 1048px) {
+
 }
 
-header {
-  background-color: #2cbbc3;
-}
+@media screen and (min-width: 1048px) {
 
-#title {
-  font-family: 'Arial Narrow', Arial, sans-serif;
-  font-size: 50px;
-  font-weight: 700;
-}
+  body {
+    display: grid;
+    margin: 0;
+    box-sizing: border-box;
+  }
 
-#title > span {
-  color: #ff9934;
-}
+  a {
+    text-decoration: none;
+  }
 
-#header_container {
-  width: 100%;
-}
+  header {
+    background-color: #2cbbc3;
+  }
 
-#nav_background {
-  width: 100%;
-  background-image: url('/public/images/HeaderBackground.jpg');
-  background-size: 30%;
-  height: 200px;
-  position: absolute;
-  left: -1px;
-}
+  #title {
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+  }
 
-#header_top {
-  width: 100%;
-  height: 100px;
-  background-color: #2cbbc3;
-}
+  #title > span {
+    color: #ff9934;
+  }
 
-#nav_width {
-  position: absolute;
-  left: -1px;
-  width: 80%;
-  height: 72px;
-  border-top-right-radius: 100px;
-  border-bottom-right-radius: 100px;
-  background-color: white;
-  box-shadow: -4px 6px 20px 4px #5756566b;
-}
+  #header_container {
+    width: 100%;
+  }
 
-#header_container *:not(#nav-width) {
-  z-index: 999;
-}
+  #nav_background {
+    width: 100%;
+    background-image: url('/public/images/HeaderBackground.jpg');
+    background-size: 30%;
+    height: 170px;
+    position: absolute;
+    left: -1px;
+  }
 
-#logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 250px;
-  height: 250px;
-  background-color: white;
-  border-radius: 200%;
-  box-shadow: 0 7px 20px 5px #575656;
-}
+  #header_top {
+    width: 100%;
+    height: 50px;
+    background-color: #2cbbc3;
+  }
 
-#logo > svg {
-  filter: invert(35%) sepia(30%) saturate(979%) hue-rotate(348deg) brightness(97%) contrast(91%);
-} 
+  #nav_width {
+    position: absolute;
+    left: -1px;
+    width: 80%;
+    height: 72px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    background-color: white;
+    box-shadow: -4px 6px 20px 4px #5756566b;
+  }
 
-.nav li {
-  font-size: 20px;
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: bolder;
-}
+  #header_container *:not(#nav-width) {
+    z-index: 999;
+  }
 
-.nav li:first-child {
-  color: white;
-}
+  #logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+    background-color: white;
+    border-radius: 200%;
+    box-shadow: 0 7px 20px 5px #575656;
+  }
+
+  #logo > svg {
+    filter: invert(35%) sepia(30%) saturate(979%) hue-rotate(348deg) brightness(97%) contrast(91%);
+  } 
+
+  header li {
+    cursor: pointer;
+    border-radius: 100%;
+    font-size: 22px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    color: black;
+  }
+
+  header li:hover {
+    background-color: rgba(163, 163, 163, 0.164);
+  }
+
+  header ul > li:first-child {
+    color: #ff9934;
+    text-shadow: 3px 2px 5px white;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+  }
+
+  .slider-inner {
+    display: flex;
+    justify-content: space-around;
+    background-color: #2cbbc3;
+    width: 100%;
+    height: 100%;
+    border-bottom-right-radius: 80%;
+    border-bottom-left-radius: 20%;
+  }
+
+  .slider-item {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .slider-item-text {
+    text-shadow: 1px 3px 5px black;
+    -webkit-text-stroke: 1px #ffffff;
+    font-size: 100px;
+    color: white;
+    font-family: fantasy;
+    width: 250px;
+    padding: 10px;
+  }
+
+  .smaller-text {
+    font-size: 50px;
+  }
+
+  .slider-img {
+    width: 300px;
+  }
+
+  footer {
+    margin-top: 6%;
+    background-color: #2F5759;
+  }
+
+  footer li {
+    width: fit-content;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+  }
+
+  #whatsapp_logo {
+    position: relative;
+    /* right: 118px; */
+    bottom: 20px;
+    filter: invert(52%) sepia(64%) saturate(583%) hue-rotate(66deg) brightness(92%) contrast(96%);
+  }
   
-#header_div {
-  height: 10px;
-  background-color: #2cbbc3;
-}
 
-.slider-inner {
-  display: flex;
-  justify-content: space-around;
-  background-color: #2cbbc3;
-  width: 100%;
-  height: 100%;
-  border-bottom-right-radius: 80%;
-  border-bottom-left-radius: 20%;
-}
+  /* /contato */
 
-.slider-item {
-  display: flex;
-  align-items: center;
-  gap: 50px;
-}
+  #form_main {
+    padding-top: 6%;
+  }
 
-.slider-item-text {
-  text-shadow: 1px 3px 5px black;
-  -webkit-text-stroke: 1px #ffffff;
-  font-size: 100px;
-  color: white;
-  font-family: fantasy;
-  width: 250px;
-  padding: 10px;
-}
+  #form_page {
+    width: 40%;
+  }
 
-.smaller-text {
-  font-size: 50px;
-}
-
-.slider-img {
-  width: 300px;
 }

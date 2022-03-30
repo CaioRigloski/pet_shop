@@ -18,4 +18,8 @@ app.get('/', (req, res) => {
   res.render('home')
 })
 
+app.get('/contato', (req, res) => {
+  res.render('contact')
+})
+
 app.listen(8080)

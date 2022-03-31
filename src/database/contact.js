@@ -1,18 +1,20 @@
 const db = require("../config/db");
 
-const Contact = db.sequelize.define('contact', {
+const Contact = db.sequelize.define('contacts', {
   name: {
-    type: db.sequelize.STRING
+    type: db.Sequelize.STRING
   },
   pet_name: {
-    type: db.sequelize.STRING
+    type: db.Sequelize.STRING
   },
   phone: {
-    type: db.sequelize.NUMBER
+    type: db.Sequelize.STRING
   },
   email: {
-    type: db.sequelize.STRING
+    type: db.Sequelize.STRING
   }
 })
 
-Contact.sync()
+//Contact.sync()
+
+module.exports = Contact

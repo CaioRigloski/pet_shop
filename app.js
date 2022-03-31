@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const hbs = require('express-handlebars')
 const bodyParser = require('body-parser')
+const Contact = require('./src/database/contact')
+
 
 app.engine('handlebars', hbs.engine({
   defaultLayout: 'main',
@@ -28,7 +30,14 @@ app.get('/contato', (req, res) => {
 })
 
 app.post('/contato', (req, res) => {
-
+  Contact.create({
+    name: req.body.name,
+    pet_name: req.body.pet_name,
+    phone: req.body.phone,
+    email: req.body.email
+  }).then(
+    res.redirect('/contato')
+  )
 })
 
 app.listen(8080)

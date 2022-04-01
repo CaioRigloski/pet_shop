@@ -1,4 +1,9 @@
 <main id="form_main" class="d-flex align-content-center justify-content-center">
+  {{#if message}}
+  <div class="alert alert-success" role="alert">
+    <p>{{message}}</p>
+  </div>
+  {{/if}}
   <form id="form_page" method="post" action="/contato">
 
     <div class="mb-3">

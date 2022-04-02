@@ -2,7 +2,11 @@ const express = require('express')
 const app = express()
 const hbs = require('express-handlebars')
 const bodyParser = require('body-parser')
+
 const Contact = require('./src/database/contact')
+
+const info = require('./src/files/contactInfo')
+
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const flash = require('req-flash')
@@ -34,38 +38,33 @@ app.use(session({
 }))
 
 app.use(flash(function(req, res, next) {
-  res.locals.message = req.flash('message')
+  res.locals.message_success = req.flash('message_success')
+  res.locals.message_error = req.flash('message_error')
   return next()
 }))
 
 
 app.get('/', (req, res) => {
-  res.render('home')
+  res.render('home', { info: info })
 })
 
 app.get('/contato', (req, res) => {
-  res.render('contact', { message: req.flash('message') })
+  res.render('contact', {
+    info: info,
+    message_success: req.flash('message_success'),
+    message_error: req.flash('message_error')
+  })
 })
 
 app.post('/contato', (req, res) => {
-  var err
-  try {
-    Contact.create({
-      name: req.body.name,
-      pet_name: req.body.pet_name,
-      phone: req.body.phone,
-      email: req.body.email
-    })
-  } catch (error) {
-    err = true 
-  } finally {
-    if(err = true) {
-      req.flash('message', 'Erro')
-    } else {
-      req.flash('message', 'Enviado com sucesso!')
-    }
-    res.redirect('/contato')
-  }
+  Contact.create({
+  name: req.body.name,
+  pet_name: req.body.pet_name,
+  phone: req.body.phone,
+  email: req.body.email
+  }).then(() => req.flash('message_success', 'Enviado com sucesso!'))
+  .catch(() => req.flash('message_error', `Erro ao enviar, por gentileza entre em contato conosco através do telefone ${info.phone}, Whatsapp ${info.cellphone}, ou e-mail ${info.email}`))
+  .then(() => res.redirect('/contato'))
 })
 
 app.listen(8080)

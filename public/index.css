@@ -98,7 +98,7 @@
     background-color: rgba(163, 163, 163, 0.164);
   }
 
-  header ul > li:first-child {
+  header ul > a:first-child li {
     color: #ff9934;
     text-shadow: 3px 2px 5px white;
     -webkit-text-stroke-width: 0.5px;

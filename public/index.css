@@ -149,12 +149,12 @@
   /* FOOTER */
   footer {
     background-color: #2F5759;
+    color: white
   }
 
   footer li {
     width: fit-content;
     font-family: 'Times New Roman', Times, serif;
-    color: white;
   }
 
   #whatsapp_logo {
@@ -164,6 +164,13 @@
     filter: invert(52%) sepia(64%) saturate(583%) hue-rotate(66deg) brightness(92%) contrast(96%);
   }
   
+  footer form {
+    font-size: 13px;
+  }
+
+  footer input {
+    height: 25px;
+  }
 
   /* /CONTATO */
   #form_main {

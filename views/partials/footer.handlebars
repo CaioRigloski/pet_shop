@@ -1,6 +1,6 @@
 <footer>
   <div id="footer_container" class="container py-4">
-    <div class="row align-items-center">
+    <div class="row justify-content-center align-items-center">
       <div class="col-3 d-flex justify-content-center">
         <ul class="nav flex-column">
           <li class="nav-item mb-2">Home</li>
@@ -17,6 +17,39 @@
           {{/with}}
         </ul>
       </div>
+      {{#unless contact_page}}
+      <div class="col-3 d-flex flex-column align-items-center">
+        <form id="footer_form" method="post" action="/contato">
+          <div class="mb-2">
+            <label for="name" class="form-label">Seu nome:</label>
+            <input id="name" class="form-control" name="name" type="text" required>
+          </div>
+          <div class="mb-2">
+            <label for="pet_name" class="form-label">Nome do seu pet:</label>
+            <input id="pet_name" class="form-control" name="pet_name" type="text">
+          </div>
+          <div class="mb-2">
+            <label for="phone_number" class="form-label">Telefone:</label>
+            <input id="phone_number" class="form-control" name="phone" type="number" required>
+          </div>
+          <div class="mb-2">
+            <label for="email" class="form-label">E-mail:</label>
+            <input id="email" class="form-control" name="email" type="email" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+        {{#if message_success}}
+        <div class="contact-alert alert alert-success" role="alert">
+          <p>{{message_success}}</p>
+        </div>
+        {{/if}}
+        {{#if message_error}}
+        <div class="contact-alert alert alert-danger" role="alert">
+          <p>{{message_error}}</p>
+        </div>
+        {{/if}}
+      </div>
+      {{/unless}}
     </div>
   </div>
 </footer>

@@ -177,6 +177,10 @@
     padding-top: 6%;
   }
   
+  #form_main h1 {
+    padding-bottom: 20px;
+  }
+
   #form_main .contact-alert {
     display: flex;
     justify-content: center;

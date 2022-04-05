@@ -12,8 +12,9 @@
   }
 
   /* GLOBALS */
-  a {
+  a, li {
     text-decoration: none;
+    color: white;
   }
 
   main {

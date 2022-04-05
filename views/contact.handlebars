@@ -1,5 +1,5 @@
-<main id="form_main" class="d-flex flex-column align-items-center justify-content-center">
-  <h1>Entramos em contato com você!</h1>
+<main id="form_main" class="d-flex flex-column align-items-center justify-content-center" role="main">
+  <h1 role="heading">Entramos em contato com você!</h1>
   {{#if message_success}}
   <div class="contact-alert alert alert-success" role="alert">
     <p>{{message_success}}</p>
@@ -10,23 +10,23 @@
     <p>{{message_error}}</p>
   </div>
   {{/if}}
-  <form id="form_page" method="post" action="/contato">
+  <form id="form_page" method="post" action="/contato" role="form">
     <div class="mb-3">
       <label for="name" class="form-label">Seu nome:</label>
-      <input id="name" class="form-control" name="name" type="text" required>
+      <input id="name" class="form-control" name="name" type="text" role="textbox" required>
     </div>
     <div class="mb-3">
       <label for="pet_name" class="form-label">Nome do seu pet:</label>
-      <input id="pet_name" class="form-control" name="pet_name" type="text">
+      <input id="pet_name" class="form-control" name="pet_name" type="text" role="textbox">
     </div>
     <div class="mb-3">
       <label for="phone_number" class="form-label">Telefone:</label>
-      <input id="phone_number" class="form-control" name="phone" type="number" required>
+      <input id="phone_number" class="form-control" name="phone" type="tel" required>
     </div>
     <div class="mb-3">
       <label for="email" class="form-label">E-mail:</label>
       <input id="email" class="form-control" name="email" type="email" required>
     </div>
-    <button type="submit" class="btn btn-primary">Enviar</button>
+    <button type="submit" class="btn btn-primary" role="button">Enviar</button>
   </form>
 </main>

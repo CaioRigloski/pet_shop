@@ -1,13 +1,13 @@
 <main id="adm_login_main">
   <div>
-    <form role="form">
+    <form role="form" method="post" action="/admin/user">
       <h1 class="h3 mb-3 fw-normal" role="heading">Acesso administrativo</h1>
       <div class="form-floating">
-        <input id="adm_login_input" type="text" class="form-control" role="textbox" aria-label="adm_login" placeholder="login">
+        <input id="adm_login_input" type="text" class="form-control" role="textbox" aria-label="adm_login" placeholder="login" required>
         <label for="adm_login_input">Login</label>
       </div>
       <div class="form-floating">
-        <input id="adm_password_input" type="email" class="form-control" placeholder="senha">
+        <input id="adm_password_input" type="email" class="form-control" placeholder="senha" required>
         <label for="adm_password_input">Senha</label>
       </div>
       <button class="w-100 btn btn-lg btn-primary" type="submit" role="button">Acessar</button>

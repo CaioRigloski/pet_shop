@@ -193,4 +193,19 @@
     width: 40%;
   }
 
+
+  /* ADMIN */
+  #adm_login_main {
+    display: flex;
+    height: 100vh;
+    text-align: center;
+  }
+
+  #adm_login_main > div {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+  }
+
 }

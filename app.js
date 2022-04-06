@@ -76,4 +76,12 @@ app.post('/contato', (req, res) => {
   .then(() => res.redirect(req.get('referer')))
 })
 
+
+
+// ADMIN
+
+app.get('/admin/login', (req, res) => {
+  res.render('./admin/adm_login', { layout: 'adm' })
+})
+
 app.listen(8080)

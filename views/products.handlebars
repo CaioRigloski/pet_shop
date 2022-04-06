@@ -1,0 +1,19 @@
+<main id="products_main">
+  <div class="container">
+    <div class="row row-cols-1">
+      {{#each Product}}
+      <div class="col">
+        <a href="/produto/detalhes/:id">
+          <div class="card">
+            <img class="card-image-top" src="/public/images/{{product_image}}"></img>
+            <div class="card-body">
+              <h5 class="card-title">{{product_name}}</h5>
+              <p class="card-text">{{product_description}}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</main>

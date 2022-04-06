@@ -52,6 +52,10 @@ app.get('/', (req, res) => {
   })
 })
 
+app.get('/produtos', (req, res) => {
+  res.render('products')
+})
+
 app.get('/contato', (req, res) => {
   res.render('contact', {
     info: info,

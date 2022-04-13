@@ -1,10 +1,11 @@
 const express = require('express')
-const { verifyAuth, generateHash } = require('./src/controllers/auth')
-const User = require('./src/database/user')
+const { verifyAuth, generateHash } = require('../../controllers/authpartials')
+const User = require('../../database/user')
 
 const adminRouter = express.Router()
 
-adminRouter.get('/admin/login', (req, res) => {
+
+adminRouter.get('/admin/login', verifyAuth, function(req, res) {
   res.render('./admin/adm_login', { layout: 'adm' })
 })
 
@@ -15,6 +16,7 @@ adminRouter.get('/admin/painel', (req, res) => {
 adminRouter.post('/admin/create_user', (req, res) => {
   var login = req.body.login
   var password = req.body.password
+
   User.beforeCreate(generateHash)
   User.create({
     login: login,

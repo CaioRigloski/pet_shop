@@ -1,8 +1,7 @@
-const express = require('express')
 const passport = require("passport")
 const localStrategy = require('passport-local').Strategy
 const bcrypt = require('bcrypt')
-const User = require("../database/user")
+const User = require('../database/user')
 
 
 const auth = (auth) => {
@@ -41,24 +40,5 @@ const auth = (auth) => {
   }))
 }
 
-function verifyAuth(req, res, next) {
-  if(req.isAuthenticated()) {
-    next()
-  }
-  else {
-    req.flash('error', 'Acesse para continuar')
-    res.redirect('/admin/login')
-  }
-}
-
-async function generateHash(user) {
-  let salt = bcrypt.genSaltSync()
-  return user.password = bcrypt.hashSync(user.password, salt)
-}
-
-module.exports = {
-  auth,
-  verifyAuth,
-  generateHash
-}
+module.exports = [ auth ]
 

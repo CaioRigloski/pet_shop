@@ -2,6 +2,10 @@ const express = require('express')
 const app = express()
 const hbs = require('express-handlebars')
 const bodyParser = require('body-parser')
+const passport = require('passport')
+const { auth } = require('./src/controllers/auth')
+const adminRouter = require('./adminRouter')
+
 
 const Contact = require('./src/database/contact')
 
@@ -10,6 +14,7 @@ const info = require('./src/files/contactInfo')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const flash = require('req-flash')
+
 
 
 app.engine('handlebars', hbs.engine({
@@ -24,10 +29,6 @@ app.set('view engine', 'handlebars')
 
 app.use('/public', express.static('public'))
 
-app.use(bodyParser.urlencoded({ extended: false }))
-
-app.use(bodyParser.json())
-
 app.use(cookieParser())
 app.use(session({
   secret: 'ubg1234hijb12hb',
@@ -37,11 +38,20 @@ app.use(session({
   resave: 'true',
 }))
 
+app.use(passport.initialize())
+app.use(passport.session())
+
 app.use(flash(function(req, res, next) {
   res.locals.message_success = req.flash('message_success')
   res.locals.message_error = req.flash('message_error')
   return next()
 }))
+
+app.use(bodyParser.urlencoded({ extended: false }))
+
+app.use(bodyParser.json())
+
+app.use(adminRouter)
 
 
 app.get('/', (req, res) => {
@@ -76,12 +86,5 @@ app.post('/contato', (req, res) => {
   .then(() => res.redirect(req.get('referer')))
 })
 
-
-
-// ADMIN
-
-app.get('/admin/login', (req, res) => {
-  res.render('./admin/adm_login', { layout: 'adm' })
-})
 
 app.listen(8080)

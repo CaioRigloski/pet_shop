@@ -1,5 +1,10 @@
 <main id="adm_login_main">
   <div>
+    {{#if message_error}}
+    <div class="contact-alert alert alert-danger" role="alert">
+      <p>{{message_error}}</p>
+    </div>
+    {{/if}}
     <form role="form" method="post" action="/admin/user">
       <h1 class="h3 mb-3 fw-normal" role="heading">Acesso administrativo</h1>
       <div class="form-floating">

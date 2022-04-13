@@ -1,9 +1,9 @@
 function verifyAuth(req, res, next) {
   if(req.isAuthenticated()) {
-
+    next()
   }
   else {
-    req.flash('message_error', 'Acesse para continuar')
+    req.flash('error', 'Acesse para continuar')
     res.redirect('/admin/login')
   }
 }

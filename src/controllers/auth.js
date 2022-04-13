@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt')
 const User = require('../database/user')
 
 
-const auth = (auth) => {
+const auth = () => {
 
   passport.serializeUser(function(user, done) {
     return done(null, user);
@@ -40,5 +40,5 @@ const auth = (auth) => {
   }))
 }
 
-module.exports = [ auth ]
+module.exports = [ auth ] 
 

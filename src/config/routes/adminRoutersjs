@@ -5,15 +5,11 @@ const User = require('../../database/user')
 const adminRouter = express.Router()
 
 
-adminRouter.get('/admin/login', verifyAuth, function(req, res) {
+adminRouter.get('/admin/login', (req, res) => {
   res.render('./admin/adm_login', { layout: 'adm' })
 })
 
-adminRouter.get('/admin/painel', (req, res) => {
-  res.render('./admin/adm_panel', { layout: 'adm' })
-})
-
-adminRouter.post('/admin/create_user', (req, res) => {
+adminRouter.post('/admin/create_user', verifyAuth, (req, res) => {
   var login = req.body.login
   var password = req.body.password
 
@@ -25,4 +21,11 @@ adminRouter.post('/admin/create_user', (req, res) => {
     res.send('usuário criado')
   )
 })
+
+
+adminRouter.get('/admin/painel', verifyAuth, (req, res) => {
+  res.render('./admin/adm_panel', { layout: 'adm' })
+})
+
+
 module.exports = adminRouter

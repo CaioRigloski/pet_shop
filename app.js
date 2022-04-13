@@ -48,6 +48,6 @@ app.use(bodyParser.json())
 
 app.use(routes)
 app.use(adminRouter)
-//app.use(auth)
+app.use('/admin', auth)
 
 app.listen(8080)

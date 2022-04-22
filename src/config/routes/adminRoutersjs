@@ -1,6 +1,7 @@
 const express = require('express')
 const passport = require('passport')
 const { verifyAuth, generateHash } = require('../../controllers/authpartials')
+const Contact = require('../../database/contact')
 const User = require('../../database/user')
 
 const adminRouter = express.Router()
@@ -30,7 +31,9 @@ adminRouter.post('/admin/create_user', verifyAuth, (req, res) => {
 })
 
 adminRouter.get('/admin/painel', verifyAuth, (req, res) => {
-  res.render('./admin/adm_panel', { layout: 'adm' })
+  Contact.findAll().then((contact) => {
+    res.render('./admin/adm_panel', { layout: 'adm', Contact: contact })
+  })
 })
 
 

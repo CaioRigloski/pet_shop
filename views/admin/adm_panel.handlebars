@@ -5,3 +5,17 @@
   <input id="password" type="password" name="password">
   <button class="btn btn-primary" type="submit">Criar</button>
 </form>
+
+<main id="adm_panel_main">
+  <div class="container">
+    <h1>Contatos</h1>
+    {{#each Contact}}
+    <div>
+      <h4>{{name}}</h3>
+      <p>{{petName}}</p>
+      <p>{{phone}}</p>
+      <p>{{email}}</p>
+    </div>
+    {{/each}}
+  </div>
+</main>

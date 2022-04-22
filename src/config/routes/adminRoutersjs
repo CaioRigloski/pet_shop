@@ -7,7 +7,7 @@ const adminRouter = express.Router()
 
 
 adminRouter.get('/admin/login', (req, res) => {
-  res.render('./admin/adm_login', { layout: 'adm' })
+  res.render('./admin/adm_login', { layout: 'adm', message_error: req.flash('error') })
 })
 
 adminRouter.post('/admin/login', passport.authenticate('local', {
@@ -16,7 +16,7 @@ adminRouter.post('/admin/login', passport.authenticate('local', {
   failureFlash: true
 }))
 
-adminRouter.post('/admin/create_user', verifyAuth, (req, res) => {
+adminRouter.post('/admin/create_user', verifyAuth, (req, res) => {  
   var login = req.body.login
   var password = req.body.password
 
@@ -25,8 +25,8 @@ adminRouter.post('/admin/create_user', verifyAuth, (req, res) => {
     login: login,
     password: password
   }).then(
-    res.send('usuário criado')
-  )
+    res.send('usuário criado').then(
+  ))
 })
 
 adminRouter.get('/admin/painel', verifyAuth, (req, res) => {

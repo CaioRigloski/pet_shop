@@ -1,4 +1,5 @@
 const express = require('express')
+const passport = require('passport')
 const { verifyAuth, generateHash } = require('../../controllers/authpartials')
 const User = require('../../database/user')
 
@@ -8,6 +9,12 @@ const adminRouter = express.Router()
 adminRouter.get('/admin/login', (req, res) => {
   res.render('./admin/adm_login', { layout: 'adm' })
 })
+
+adminRouter.post('/admin/login', passport.authenticate('local', {
+  successRedirect: '/admin/painel',
+  failureRedirect: '/admin/login',
+  failureFlash: true
+}))
 
 adminRouter.post('/admin/create_user', verifyAuth, (req, res) => {
   var login = req.body.login
@@ -21,7 +28,6 @@ adminRouter.post('/admin/create_user', verifyAuth, (req, res) => {
     res.send('usuário criado')
   )
 })
-
 
 adminRouter.get('/admin/painel', verifyAuth, (req, res) => {
   res.render('./admin/adm_panel', { layout: 'adm' })

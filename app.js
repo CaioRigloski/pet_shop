@@ -25,14 +25,15 @@ app.set('view engine', 'handlebars')
 
 app.use('/public', express.static('public'))
 
-//app.use(cookieParser())
+app.use(cookieParser())
 app.use(session({
-  secret: 'ubg1234hijb12hb',
-  cookie: { maxAge: 60000},
-  store: new session.MemoryStore,
+  secret: '21312123adsa231vbdssssertt',
+  resave: true,
   saveUninitialized: true,
-  resave: 'true',
+  cookie: {},
 }))
+
+//app.set('trust proxy', 'loopback')._router
 
 app.use(passport.initialize())
 app.use(passport.session())
@@ -40,14 +41,16 @@ app.use(passport.session())
 app.use(flash(function(req, res, next) {
   res.locals.message_success = req.flash('message_success')
   res.locals.message_error = req.flash('message_error')
-  return next()
 }))
+
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
+
 app.use(routes)
 app.use(adminRouter)
-app.use('/admin', auth)
+app.use(auth)
+
 
 app.listen(8080)

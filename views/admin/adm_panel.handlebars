@@ -1,21 +1,36 @@
-<form method="post" action="/admin/create_user">
+{{!-- <form method="post" action="/admin/create_user">
   <label for="login">Login</label>
   <input id="login" type="text" name="login">
   <label for="password">Senha</label>
   <input id="password" type="password" name="password">
   <button class="btn btn-primary" type="submit">Criar</button>
-</form>
+</form> --}}
 
-<main id="adm_panel_main">
-  <div class="container">
-    <h1>Contatos</h1>
+<main id="adm_panel_main" class="d-flex justify-content-center flex-wrap">
+  <div class="d-flex contact-container flex-column align-items-center">
+    <h1 class="pb-5">Contatos</h1>
     {{#each Contact}}
-    <div>
-      <h4>{{name}}</h3>
-      <p>{{petName}}</p>
-      <p>{{phone}}</p>
-      <p>{{email}}</p>
+    <div class="contact-box p-5">
+      <div>
+        <h4>{{name}}</h3>
+        <p>{{petName}}</p>
+        <p>{{phone}}</p>
+        <p>{{email}}</p>
+      </div>
+      <div class="contact">
+        <div class="btn-group">
+          <button type="button" class="btn btn-success">Concluir</button>
+          <button type="button" class="btn btn-danger">Excluir</button>
+        </div>
+      </div>
     </div>
     {{/each}}
+  </div>
+  <div class="d-flex nav-container flex-column bg-light">
+    <div class="pt-5"></div>
+    <ul class="nav nav-pills flex-column pt-5 p-3">
+      <li class="nav-item">Criar usuário</li>
+      <li class="nav-item">Listar usuários</li>
+    </ul>
   </div>
 </main>

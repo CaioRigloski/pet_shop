@@ -208,4 +208,13 @@
     margin: auto;
   }
 
+  /* ADMIN panel */
+
+  #adm_panel_main > .contact-container > .contact-box {
+    width: 500px;
+  }
+
+  #adm_panel_main .nav-container li{
+    color: black;
+  }
 }

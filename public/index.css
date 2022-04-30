@@ -210,11 +210,25 @@
 
   /* ADMIN panel */
 
+  #adm_panel_main {
+    background-color: #6e7274;
+  }
+
   #adm_panel_main > .contact-container > .contact-box {
     width: 500px;
   }
 
-  #adm_panel_main .nav-container li{
-    color: black;
+  #adm_panel_main .title {
+    color: white
+  }
+
+  #adm_panel_main .nav-container li {
+    width: 130px;
+    color: white;
+  }
+
+  #adm_panel_main .contact-box:hover {
+    background-color:#2cbbc3 !important;
+    color: white;
   }
 }

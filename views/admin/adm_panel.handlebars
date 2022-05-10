@@ -11,6 +11,9 @@
     <div class="w-100 text-center text-white">
       <h1 class="p-5">Contatos</h1>
     </div>
+    {{#each Page}}
+    <a href="/admin/painel/{{number}}"><p>{{number}}</p></a>
+    {{/each}}
     {{#each Contact}}
     <div class="contact-box p-5 bg-light border-bottom">
       <div>

@@ -13,8 +13,8 @@ const auth = (auth) => {
   });
   
   passport.use(new localStrategy({
-    usernameField: 'login',
-    passwordField: 'password',
+    usernameField:'login',
+    passwordField:'password',
   },
   function (username, password, done, req) {
     User.findOne({

@@ -36,4 +36,9 @@ routes.post('/contato', (req, res) => {
   .then(() => res.redirect(req.get('referer')))
 })
 
+routes.get('/contato/:id', (req, res) => {
+  var id = req.params.id
+  res.json({contato: id})
+})
+
 module.exports = routes

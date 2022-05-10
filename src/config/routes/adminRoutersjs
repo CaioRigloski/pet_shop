@@ -26,13 +26,31 @@ adminRouter.post('/admin/create_user', verifyAuth, (req, res) => {
     login: login,
     password: password
   }).then(
-    res.send('usuário criado').then(
-  ))
+    res.send('usuário criado')
+  )
 })
 
 adminRouter.get('/admin/painel', verifyAuth, (req, res) => {
-  Contact.findAll().then((contact) => {
-    res.render('./admin/adm_panel', { layout: 'adm', Contact: contact })
+  res.redirect('/admin/painel/1')
+})
+
+adminRouter.get('/admin/painel/:number', verifyAuth, (req, res) => {
+  var number = req.params.number - 1
+  Contact.findAndCountAll().then((result) => {
+    var arr = []
+    var totalPages = []
+
+    var perPage = 2
+    for(var i = 0; i <= result.rows.length; i++) {
+      arr.push(result.rows.splice(0, perPage))
+      arr[i].page = i + 1
+    }
+
+    for(var i = 1; i <= Math.ceil(result.count/perPage); i++) {
+      totalPages.push({number: i})
+    }
+
+    res.render('./admin/adm_panel', { layout: 'adm', Contact: arr[number], Page: totalPages})
   })
 })
 

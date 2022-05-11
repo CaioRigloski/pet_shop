@@ -6,6 +6,9 @@ const User = require('../../database/user')
 
 const adminRouter = express.Router()
 
+adminRouter.get('/admin', (req, res) => {
+  res.redirect('/admin/login')
+})
 
 adminRouter.get('/admin/login', (req, res) => {
   res.render('./admin/adm_login', { layout: 'adm', message_error: req.flash('error') })

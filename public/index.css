@@ -211,6 +211,7 @@
   /* ADMIN panel */
 
   #adm_panel_main {
+    height: 100vh;
     background-color: #6e7274;
   }
 

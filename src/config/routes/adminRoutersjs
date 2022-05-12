@@ -57,5 +57,14 @@ adminRouter.get('/admin/painel/:number', verifyAuth, (req, res) => {
   })
 })
 
+adminRouter.post('/admin/painel/excluir_contato', (req, res) => {
+  Contact.findOne({
+    where: {email: req.body.email}
+  }).then(() => {
+    res.json('success')
+  }).catch(() => {
+    res.json('error')
+  })
+})
 
 module.exports = adminRouter

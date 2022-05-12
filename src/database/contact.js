@@ -12,6 +12,9 @@ const Contact = db.sequelize.define('contacts', {
   },
   email: {
     type: db.Sequelize.STRING
+  },
+  is_concluded: {
+    type: db.Sequelize.TINYINT
   }
 })
 

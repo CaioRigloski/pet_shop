@@ -58,9 +58,13 @@ adminRouter.get('/admin/painel/:number', verifyAuth, (req, res) => {
 })
 
 adminRouter.post('/admin/painel/excluir_contato', (req, res) => {
-  Contact.findOne({
-    where: {email: req.body.email}
-  }).then(() => {
+  Contact.update(
+    {is_concluded: 1}, {
+      where: {
+        email: req.body.email
+      }
+    }).then((responsa) => {
+    console.log(responsa)
     res.json('success')
   }).catch(() => {
     res.json('error')

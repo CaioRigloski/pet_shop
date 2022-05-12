@@ -6,7 +6,7 @@ $('.contact .conclude-btn').on({
       type: "POST",
       url: '/admin/painel/excluir_contato',
       dataType: "json",
-      data: { email: email}
+      data: { email: email }
     }).done(function(data) {
       console.log(data)
     }).fail(function(error) {

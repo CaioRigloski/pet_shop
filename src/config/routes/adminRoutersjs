@@ -57,7 +57,7 @@ adminRouter.get('/admin/painel/:number', verifyAuth, (req, res) => {
   })
 })
 
-adminRouter.post('/admin/painel/excluir_contato', (req, res) => {
+adminRouter.post('/admin/painel/concluir_contato', (req, res) => {
   Contact.update(
     {is_concluded: 1}, {
       where: {

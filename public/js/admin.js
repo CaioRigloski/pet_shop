@@ -6,7 +6,7 @@ $('.contact .conclude-btn').on({
     var email = contactBox.find('.email').text()
     $.ajax({
       type: 'POST',
-      url: '/admin/painel/excluir_contato',
+      url: '/admin/painel/concluir_contato',
       dataType: 'json',
       data: { id: contactId, email: email }
     }).done((data) => {
@@ -16,6 +16,7 @@ $('.contact .conclude-btn').on({
     }).then((response) => {
       if(response === 'success') {
         contactBox.attr('style', 'background-color: green !important;')
+        contactBox.find('.conclude-btn').hide()
       } else {
         contactBox.attr('style', 'background-color: red !important;')
         $('#error_modal').show()
@@ -46,7 +47,9 @@ $(
       }).then((response) => {
         response.forEach((contact, i) => {
           if(contact.is_concluded === 1) {
-            $(`[contactId = ${contact.id}]`).attr('style', 'background-color: green !important;')
+            var contactBox = $(`[contactId = ${contact.id}]`)
+            contactBox.attr('style', 'background-color: green !important;')
+            contactBox.find('.conclude-btn').hide()
           }
         })
       })

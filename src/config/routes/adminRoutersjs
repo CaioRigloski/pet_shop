@@ -61,13 +61,23 @@ adminRouter.post('/admin/painel/excluir_contato', (req, res) => {
   Contact.update(
     {is_concluded: 1}, {
       where: {
+        id: req.body.id,
         email: req.body.email
       }
-    }).then((responsa) => {
-    console.log(responsa)
+    }).then(() => {
     res.json('success')
   }).catch(() => {
     res.json('error')
+  })
+})
+
+adminRouter.get('/admin/painel/api/contacts', (req, res) => {
+  Contact.findAll({
+    attributes: ['id','is_concluded']
+  }).then((response) => {
+    res.json(response)
+  }).catch(() => {
+    res.json('erro ao buscar contatos')
   })
 })
 

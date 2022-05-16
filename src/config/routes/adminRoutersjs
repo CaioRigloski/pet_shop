@@ -71,6 +71,20 @@ adminRouter.post('/admin/painel/concluir_contato', (req, res) => {
   })
 })
 
+adminRouter.post('/admin/painel/desfazer_contato', (req, res) => {
+  Contact.update(
+    {is_concluded: 0}, {
+      where: {
+        id: req.body.id,
+        email: req.body.email
+      }
+    }).then(() => {
+    res.json('success')
+  }).catch(() => {
+    res.json('error')
+  })
+})
+
 adminRouter.get('/admin/painel/api/contacts', (req, res) => {
   Contact.findAll({
     attributes: ['id','is_concluded']

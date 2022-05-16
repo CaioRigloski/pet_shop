@@ -229,7 +229,6 @@
   }
 
   #adm_panel_main .contact-box:hover {
-    background-color:#2cbbc3 !important;
-    color: white;
+    transform: scale(0.95);
   }
 }

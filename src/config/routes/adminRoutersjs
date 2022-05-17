@@ -85,6 +85,10 @@ adminRouter.post('/admin/painel/desfazer_contato', (req, res) => {
   })
 })
 
+adminRouter.post('/admin/painel/adicionar_anotacao', (req, res) => {
+  
+})
+
 adminRouter.get('/admin/painel/api/contacts', (req, res) => {
   Contact.findAll({
     attributes: ['id','is_concluded']

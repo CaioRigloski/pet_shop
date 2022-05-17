@@ -88,6 +88,37 @@ $(
   }
 )
 
+// Contact notes
+
+$('.contact .send-note-btn').on({
+  click: function() {
+    var contactBox = $(this).closest('.contact-box')
+    var contactId = contactBox.attr('contactId')
+    var email = contactBox.find('.email').text()
+
+    var inputVal = $(this).closest('.contact').find('.form-control').val()
+
+    if(inputVal) {
+      $.ajax({
+        type: 'POST',
+        url: '/admin/painel/adicionar_anotacao',
+        dataType: 'json',
+        data: { id: contactId, email: email }
+      }).done((data) => {
+        console.log(data)
+      }).fail((error) => {
+        console.log(error)
+      }).then((response) => {
+        if(response === 'success') {
+
+        } else {
+
+        }
+      })
+    }
+  }
+})
+
 
 
 

@@ -228,7 +228,6 @@
     height: 40px;
   }
 
-
   #adm_panel_main .title {
     color: white
   }
@@ -239,6 +238,6 @@
   }
 
   #adm_panel_main .contact-box:hover {
-    transform: scale(0.95);
+    transform: scale(0.98);
   }
 }

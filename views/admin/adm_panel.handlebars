@@ -51,6 +51,11 @@
           <button type="button" class="conclude-btn btn btn-success">Concluir</button>
           <button type="button" class="undo-btn btn btn-warning" style="display: none">Desfazer</button>
         </div>
+        <div class="form-floating d-flex flex-row gap-2">
+          <input type="text" id="addANote" class="form-control" placeholder="Digite o comentário..." />
+          <label class="form-label d-flex align-items-center" for="addANote">+ Adicionar anotação</label>
+          <img src="/public/images/send-plus.svg">
+        </div>
       </div>
     </div>
     {{/each}}

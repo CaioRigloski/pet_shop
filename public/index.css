@@ -219,6 +219,16 @@
     width: 500px;
   }
 
+  #adm_panel_main .contact-container .form-floating {
+    position: relative;
+    top: 10px;
+  }
+
+  #adm_panel_main .contact-container .form-floating > input {
+    height: 40px;
+  }
+
+
   #adm_panel_main .title {
     color: white
   }

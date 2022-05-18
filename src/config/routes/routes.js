@@ -1,5 +1,6 @@
 const express = require('express')
 const Contact = require('../../database/contact')
+const Note = require('../../database/contactNotes')
 const info = require('../../files/contactInfo')
 
 const routes = express.Router()
@@ -9,6 +10,10 @@ routes.get('/', (req, res) => {
     info: info,
     message_success: req.flash('message_success'),
     message_error: req.flash('message_error')
+  })
+
+  Note.findAll().then((r) => {
+    console.log(r)
   })
 })
 

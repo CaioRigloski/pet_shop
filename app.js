@@ -9,7 +9,7 @@ const flash = require('req-flash')
 const passport = require('passport')
 const auth = require('./src/controllers/auth')
 
-const adminRouter = require('./src/config/routes/adminRoutersjs')
+const adminRouter = require('./src/config/routes/adminRouters')
 const routes = require('./src/config/routes/routes')
 
 
@@ -32,8 +32,6 @@ app.use(session({
   saveUninitialized: true,
   cookie: {},
 }))
-
-//app.set('trust proxy', 'loopback')._router
 
 app.use(passport.initialize())
 app.use(passport.session())

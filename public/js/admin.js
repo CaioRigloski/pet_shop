@@ -103,16 +103,16 @@ $('.contact .send-note-btn').on({
         type: 'POST',
         url: '/admin/painel/adicionar_anotacao',
         dataType: 'json',
-        data: { id: contactId, email: email }
+        data: { id: contactId, email: email, note: inputVal }
       }).done((data) => {
         console.log(data)
       }).fail((error) => {
         console.log(error)
       }).then((response) => {
         if(response === 'success') {
-
+          console.log(response)
         } else {
-
+          console.log(response)
         }
       })
     }

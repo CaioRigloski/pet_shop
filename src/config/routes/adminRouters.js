@@ -2,6 +2,7 @@ const express = require('express')
 const passport = require('passport')
 const { verifyAuth, generateHash } = require('../../controllers/authpartials')
 const Contact = require('../../database/contact')
+const Note = require('../../database/contactNotes')
 const User = require('../../database/user')
 
 const adminRouter = express.Router()
@@ -86,7 +87,21 @@ adminRouter.post('/admin/painel/desfazer_contato', (req, res) => {
 })
 
 adminRouter.post('/admin/painel/adicionar_anotacao', (req, res) => {
-  
+  console.log(req.body)
+  Contact.findOne({
+    where: {
+      id: req.body.id
+    }
+  }).then((contact) => {
+    Note.create({
+      contact_id: contact.id,
+      note: req.body.note
+    })
+  }).then(() => {
+    res.json('success')
+  }).catch(() => {
+    res.json('error')
+  })
 })
 
 adminRouter.get('/admin/painel/api/contacts', (req, res) => {

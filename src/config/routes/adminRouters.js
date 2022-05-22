@@ -54,7 +54,38 @@ adminRouter.get('/admin/painel/:number', verifyAuth, (req, res) => {
       totalPages.push({number: i})
     }
 
-    res.render('./admin/adm_panel', { layout: 'adm', Contact: arr[number], Page: totalPages})
+    return {arr, totalPages}
+  }).then((contactPage) => {
+    
+    Note.findAll().then((note) => {
+      var contacts = []
+      var contactNotes = []
+      var data = []
+      var render = []
+
+      contacts.push(contactPage.arr)
+
+      note.map((n) => {
+        contactNotes.push([{note_id: n.id, contact_id: n.contact_id, note: n.note}])
+      })
+
+      contacts.forEach((contact, cIndex) => {
+        contact[number].map((c) => {
+          data.push([{id: c.id, name: c.name, pet_name: c.pet_name, phone: c.phone, email: c.email}])
+        })
+      })
+
+      data.map((d, dIndex) => {
+        d.forEach((dt, dtIndex) => {
+          let notes = contactNotes.flat().filter((element) => element.contact_id === dt.id)
+          render.push({id: dt.id, name: dt.name, pet_name: dt.pet_name, phone: dt.phone, email: dt.email, note: notes})
+        })
+      })
+      
+      return render
+    }).then((render) => {
+      res.render('./admin/adm_panel', { layout: 'adm', Contact: render, Page: contactPage.totalPages})
+    })
   })
 })
 

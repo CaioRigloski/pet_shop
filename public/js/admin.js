@@ -112,7 +112,7 @@ $('.contact .send-note-btn').on({
         if(response === 'success') {
           console.log(response)
         } else {
-          console.log(response)
+          $('#error_modal').show()
         }
       })
     }

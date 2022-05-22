@@ -15,7 +15,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>Ocorreu um erro ao tentar concluir o contato. Por gentileza contate o administrador.</p>
+        <p>Ocorreu ao realizar a operação. Por gentileza contate o administrador.</p>
       </div>
       <div class="modal-footer">
         <button id="error_modal_close" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -60,10 +60,10 @@
               <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 0 0 1 0v-1h1a.5.5 0 0 0 0-1h-1v-1a.5.5 0 0 0-.5-.5Z"/>
             </svg>
           </button>
-          {{#each Note}}
+          {{#each note}}
           <div class="note-box">
             <h6>{{user}}:</h6>
-            <p>{{comment}}</p>
+            <p>{{note}}</p>
           </div>
           {{/each}}
         </div>
